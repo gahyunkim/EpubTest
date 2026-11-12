@@ -22,6 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Readium kotlin-toolkit 으로 여는 리더 -->
+        <activity
+            android:name=".reader.ReadiumReaderActivity"
+            android:exported="false"
+            android:theme="@style/Theme.EpubTest" />
+        <!-- 라이브러리 없이 EPUB 을 직접 파싱/렌더링하는 리더 -->
+        <activity
+            android:name=".custom.CustomReaderActivity"
+            android:exported="false"
+            android:theme="@style/Theme.EpubTest" />
     </application>
 
 </manifest>
