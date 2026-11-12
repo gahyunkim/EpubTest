@@ -6,9 +6,8 @@ plugins {
 android {
     namespace = "com.example.epubtest"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+        // Readium 3.4.0 / AndroidX 최신 라이브러리가 compileSdk 37 이상을 요구
+        version = release(37)
     }
 
     defaultConfig {
@@ -33,6 +32,8 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+        // Readium 필수
+        isCoreLibraryDesugaringEnabled = true
     }
     buildFeatures {
         compose = true
@@ -48,6 +49,14 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.fragment.compose)
+
+    // Readium kotlin-toolkit (EPUB 파싱 + 렌더링)
+    implementation(libs.readium.shared)
+    implementation(libs.readium.streamer)
+    implementation(libs.readium.navigator)
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
