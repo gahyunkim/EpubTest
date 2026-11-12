@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Readium 라이브러리 값(40dp) 덮어쓰기: 페이지 모드에서 본문 위/아래 여백. Figma 02 화면 기준 -->
+    <dimen name="readium_navigator_epub_vertical_padding">24dp</dimen>
+</resources>
